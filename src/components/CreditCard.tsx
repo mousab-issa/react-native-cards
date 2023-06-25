@@ -1,15 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import colors from "../theme/colors";
-import { Text } from "../components";
+import { Text } from "../components/Text";
 
-interface CardProps {
-  cardHolder: string;
-  cardNumber: string;
-  expiryDate: string;
-}
-
-export const CreditCard: React.FC<CardProps> = ({
+export const CreditCard: React.FC<Card> = ({
   cardHolder,
   cardNumber,
   expiryDate,
