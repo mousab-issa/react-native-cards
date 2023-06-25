@@ -5,15 +5,20 @@ import colors from "../../theme/colors";
 import { Text, MaskedTextField } from "../../components";
 import { useAppDispatch } from "../../state/hooks";
 import { addCard } from "./CardsSlice";
+import { useNavigation } from "@react-navigation/native";
+import { AppStackParamList } from "src/types/navigation";
 
 type FormData = Card;
 
 export const CreditCardForm: React.FC = () => {
+  const navigation = useNavigation<any>();
+
   const { control, handleSubmit } = useForm<FormData>();
   const dispatch = useAppDispatch();
 
   const onSubmit = (data: FormData) => {
     dispatch(addCard(data));
+    navigation.navigate("CardListScreen");
   };
 
   const cardNumberMask = [
