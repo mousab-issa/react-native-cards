@@ -1,9 +1,8 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { View, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-import MaskInput from "react-native-mask-input";
+import { useForm } from "react-hook-form";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
 import colors from "../theme/colors";
-import { Text } from "../components/Text";
+import { Text, MaskedTextField } from "../components";
 
 type FormData = {
   cardNumber: string;
@@ -42,68 +41,35 @@ export const CreditCardForm: React.FC = () => {
 
   return (
     <View>
-      <Controller
+      <MaskedTextField
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <MaskInput
-            keyboardType="numeric"
-            mask={cardNumberMask}
-            onChangeText={(masked, raw) => onChange(masked)}
-            onBlur={onBlur}
-            value={value}
-            placeholder="Card Number"
-            style={styles.input}
-          />
-        )}
+        mask={cardNumberMask}
+        placeholder="Card Number"
         name="cardNumber"
         rules={{ required: true }}
       />
-      <Controller
+      <MaskedTextField
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            placeholder="Name on Card"
-            style={styles.input}
-          />
-        )}
+        mask={cardNumberMask}
+        placeholder="Name on Card"
         name="cardName"
         rules={{ required: true }}
       />
-      <Controller
+      <MaskedTextField
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <MaskInput
-            keyboardType="numeric"
-            mask={expiryDateMask}
-            onChangeText={(masked, raw) => onChange(masked)}
-            onBlur={onBlur}
-            value={value}
-            placeholder="Expiry Date (MM/YY)"
-            style={styles.input}
-          />
-        )}
+        mask={expiryDateMask}
+        placeholder="Expiry Date (MM/YY)"
         name="expiryDate"
         rules={{ required: true }}
       />
-      <Controller
+      <MaskedTextField
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <MaskInput
-            keyboardType="numeric"
-            mask={ccvMask}
-            onChangeText={(masked, raw) => onChange(masked)}
-            onBlur={onBlur}
-            value={value}
-            placeholder="CCV"
-            style={styles.input}
-          />
-        )}
+        mask={ccvMask}
+        placeholder="CCV"
         name="ccv"
         rules={{ required: true }}
       />
+
       <TouchableOpacity style={styles.button} onPress={handleSubmit(onSubmit)}>
         <Text style={styles.buttonText} preset="bold">
           Submit{" "}
@@ -112,6 +78,7 @@ export const CreditCardForm: React.FC = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   button: {
     height: 45,
@@ -122,14 +89,5 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: colors.palette.white,
-  },
-  input: {
-    marginBottom: 20,
-    padding: 10,
-    borderRadius: 5,
-    borderColor: colors.palette.grey25,
-    borderWidth: 1.5,
-    fontSize: 18,
-    height: 56,
   },
 });
