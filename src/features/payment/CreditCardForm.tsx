@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
-import colors from "../theme/colors";
-import { Text, MaskedTextField } from "../components";
+import colors from "../../theme/colors";
+import { Text, MaskedTextField } from "../../components";
 
 type FormData = {
   cardNumber: string;

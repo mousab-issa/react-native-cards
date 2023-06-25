@@ -5,13 +5,13 @@ import { TouchableOpacity, View } from "react-native";
 
 import { Text } from "./Text";
 
-interface PageHeaderProps {
+interface ScreenHeaderProps {
   pageTitle?: string;
   rightComponent?: () => ReactNode;
   showBackButton?: boolean;
 }
 
-export const PageHeader: FC<PageHeaderProps> = ({
+export const ScreenHeader: FC<ScreenHeaderProps> = ({
   pageTitle,
   rightComponent,
   showBackButton = true,
