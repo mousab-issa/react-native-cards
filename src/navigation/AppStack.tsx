@@ -1,17 +1,18 @@
-// In App.js in a new project
-
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AddCardScreen, CardsScreen } from "../features/payment";
+import { AppStackParamList } from "../types/navigation";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<AppStackParamList>();
 
-function App() {
+export const AppStack = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator></Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator
+      initialRouteName="AddCardScreen"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="CardListScreen" component={CardsScreen} />
+      <Stack.Screen name="AddCardScreen" component={AddCardScreen} />
+    </Stack.Navigator>
   );
-}
-
-export default App;
+};

@@ -2,6 +2,7 @@ const palette = {
   blue100: "#4AD8DA",
 
   grey100: "#CDCDCD",
+  grey25: "#E6E3E6",
 
   white: "#FFFFFF",
 

@@ -1,12 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { CreditCardForm, Screen } from "../../components";
 
 export const AddCardScreen = () => {
   return (
-    <View>
-      <Text>AddCardScreen</Text>
-    </View>
+    <Screen safeAreaEdges={["top"]}>
+      <CreditCardForm />
+    </Screen>
   );
 };
-
-const styles = StyleSheet.create({});
