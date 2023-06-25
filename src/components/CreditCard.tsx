@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import colors from "../theme/colors";
 import { Text } from "../components/Text";
 
-export const CreditCard: React.FC<Card> = ({
+export const CreditCard: React.FC<Omit<Card, "ccv">> = ({
   cardHolder,
   cardNumber,
   expiryDate,

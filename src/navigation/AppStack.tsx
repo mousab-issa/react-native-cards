@@ -11,7 +11,7 @@ export const AppStack = () => {
       initialRouteName="CardListScreen"
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen name="CardListScreen" component={CardsScreen} />
+      {/* <Stack.Screen name="CardListScreen" component={CardsScreen} /> */}
       <Stack.Screen name="AddCardScreen" component={AddCardScreen} />
     </Stack.Navigator>
   );
