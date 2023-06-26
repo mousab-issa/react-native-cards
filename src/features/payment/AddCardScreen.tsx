@@ -1,9 +1,11 @@
 import React from "react";
-import { CreditCardForm, Screen } from "../../components";
+import { Screen, ScreenHeader } from "../../components";
+import { CreditCardForm } from "./CreditCardForm";
 
 export const AddCardScreen = () => {
   return (
     <Screen safeAreaEdges={["top"]}>
+      <ScreenHeader pageTitle="Add card" />
       <CreditCardForm />
     </Screen>
   );

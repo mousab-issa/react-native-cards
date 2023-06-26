@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator<AppStackParamList>();
 export const AppStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="AddCardScreen"
+      initialRouteName="CardListScreen"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="CardListScreen" component={CardsScreen} />

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { KeyboardTypeOptions, StyleSheet } from "react-native";
 import { Controller } from "react-hook-form";
 import MaskInput from "react-native-mask-input";
 import colors from "../theme/colors";
@@ -10,6 +10,7 @@ interface MaskedTextFieldProps {
   name: string;
   placeholder: string;
   rules: Record<string, any>;
+  keyboardType: KeyboardTypeOptions;
 }
 
 export const MaskedTextField: React.FC<MaskedTextFieldProps> = ({
@@ -18,12 +19,13 @@ export const MaskedTextField: React.FC<MaskedTextFieldProps> = ({
   name,
   placeholder,
   rules,
+  keyboardType,
 }) => (
   <Controller
     control={control}
     render={({ field: { onChange, onBlur, value } }) => (
       <MaskInput
-        keyboardType="numeric"
+        keyboardType={keyboardType}
         mask={mask}
         onChangeText={(masked) => onChange(masked)}
         onBlur={onBlur}
@@ -46,5 +48,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     fontSize: 18,
     height: 56,
+    width: "100%",
   },
 });

@@ -5,13 +5,13 @@ import { TouchableOpacity, View } from "react-native";
 
 import { Text } from "./Text";
 
-interface PageHeaderProps {
-  pageTitle: string;
+interface ScreenHeaderProps {
+  pageTitle?: string;
   rightComponent?: () => ReactNode;
   showBackButton?: boolean;
 }
 
-export const PageHeader: FC<PageHeaderProps> = ({
+export const ScreenHeader: FC<ScreenHeaderProps> = ({
   pageTitle,
   rightComponent,
   showBackButton = true,
@@ -28,20 +28,18 @@ export const PageHeader: FC<PageHeaderProps> = ({
         )}
       </TouchableOpacity>
 
-      <Text
-        preset={"bold"}
-        weight={"bold"}
-        size={"sm"}
-        style={{ marginBottom: 18 }}
-      >
-        {pageTitle}
-      </Text>
-
-      {rightComponent ? (
-        <View>{rightComponent()}</View>
-      ) : (
-        <View /> // Empty View for keeping the space even when there's no RightComponent
+      {pageTitle && (
+        <Text
+          preset={"bold"}
+          weight={"bold"}
+          size={"sm"}
+          style={{ marginBottom: 18 }}
+        >
+          {pageTitle}
+        </Text>
       )}
+
+      {rightComponent ? <View>{rightComponent()}</View> : <View />}
     </View>
   );
 };

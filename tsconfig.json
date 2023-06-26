@@ -16,17 +16,6 @@
     "resolveJsonModule": true,
     "strict": true,
     "baseUrl": ".",
-    "paths": {
-      "@navigation/*": [
-        "src/navigation"
-      ],
-      "@components/*": [
-        "src/components"
-      ],
-      "@types/*": [
-        "src/types"
-      ],
-    }
   },
   "exclude": [
     "node_modules",
