@@ -46,5 +46,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     fontSize: 18,
     height: 56,
+    width: "100%",
   },
 });

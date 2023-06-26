@@ -44,10 +44,13 @@ export const CreditCardForm: React.FC = () => {
   ];
   const expiryDateMask = [/\d/, /\d/, "/", /\d/, /\d/];
   const ccvMask = [/\d/, /\d/, /\d/];
-  const nameMask = [/\w/, /\w/, " ", /\w/, /\w/];
+  const nameMask: RegExp[] = Array.from({ length: 20 }).fill(/\w/) as RegExp[];
 
   return (
     <View>
+      <Text preset="formLabel" style={styles.label}>
+        Card Number
+      </Text>
       <MaskedTextField
         control={control}
         mask={cardNumberMask}
@@ -55,6 +58,9 @@ export const CreditCardForm: React.FC = () => {
         name="cardNumber"
         rules={{ required: true }}
       />
+      <Text preset="formLabel" style={styles.label}>
+        Name on Card
+      </Text>
       <MaskedTextField
         control={control}
         mask={nameMask}
@@ -62,6 +68,9 @@ export const CreditCardForm: React.FC = () => {
         name="cardHolder"
         rules={{ required: true }}
       />
+      <Text preset="formLabel" style={styles.label}>
+        Expiry Date
+      </Text>
       <MaskedTextField
         control={control}
         mask={expiryDateMask}
@@ -69,6 +78,9 @@ export const CreditCardForm: React.FC = () => {
         name="expiryDate"
         rules={{ required: true }}
       />
+      <Text preset="formLabel" style={styles.label}>
+        CCV
+      </Text>
       <MaskedTextField
         control={control}
         mask={ccvMask}
@@ -87,6 +99,11 @@ export const CreditCardForm: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  label: {
+    color: colors.palette.black,
+    fontSize: 16,
+    marginBottom: 5,
+  },
   button: {
     height: 45,
     backgroundColor: colors.primary,
