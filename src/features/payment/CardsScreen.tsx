@@ -5,14 +5,21 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Pressable } from "react-native";
 import { AppStackParamList } from "src/types/navigation";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { NoCardsState } from "./NoCardsState";
 
 type Props = NativeStackScreenProps<AppStackParamList, "CardListScreen">;
 
 export const CardsScreen: FC<Props> = ({ navigation }) => {
   const cards = useAppSelector((state) => state.cards.cardList);
 
+  const payRandomAmount = (card: Card) => {};
+
   const renderCard = (card: Card) => {
-    return <CreditCard key={card.cardNumber} {...card} />;
+    return (
+      <Pressable onPress={() => payRandomAmount(card)}>
+        <CreditCard key={card.cardNumber} {...card} />
+      </Pressable>
+    );
   };
 
   const renderAdd = () => {
@@ -22,7 +29,7 @@ export const CardsScreen: FC<Props> = ({ navigation }) => {
           navigation.navigate("AddCardScreen");
         }}
       >
-        <Ionicons name="add" size={5} />;
+        <Ionicons name="add" size={30} />
       </Pressable>
     );
   };
@@ -30,7 +37,9 @@ export const CardsScreen: FC<Props> = ({ navigation }) => {
   return (
     <Screen safeAreaEdges={["top"]} preset="scroll">
       <ScreenHeader pageTitle="Cards" rightComponent={renderAdd} />
-      {cards.map(renderCard)}
+
+      {!!cards.length && cards.map(renderCard)}
+      {!cards.length && <NoCardsState />}
     </Screen>
   );
 };

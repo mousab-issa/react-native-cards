@@ -44,6 +44,7 @@ export const CreditCardForm: React.FC = () => {
   ];
   const expiryDateMask = [/\d/, /\d/, "/", /\d/, /\d/];
   const ccvMask = [/\d/, /\d/, /\d/];
+  const nameMask = [/\w/, /\w/, " ", /\w/, /\w/];
 
   return (
     <View>
@@ -56,7 +57,7 @@ export const CreditCardForm: React.FC = () => {
       />
       <MaskedTextField
         control={control}
-        mask={cardNumberMask}
+        mask={nameMask}
         placeholder="Name on Card"
         name="cardHolder"
         rules={{ required: true }}

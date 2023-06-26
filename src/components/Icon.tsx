@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { SvgProps } from "react-native-svg";
 
-export type IconNames = "visa" | "mastercard" | "unionPay" | "creditCard";
+import CreditCard from "../assets/icons/card.svg";
+
+export type IconNames = "creditCard";
 
 interface IconProps extends SvgProps {
   name: IconNames;
@@ -9,6 +11,8 @@ interface IconProps extends SvgProps {
 
 export const Icon: FC<IconProps> = ({ name, ...props }) => {
   switch (name) {
+    case "creditCard":
+      return <CreditCard {...props} />;
     default:
       return null;
   }
