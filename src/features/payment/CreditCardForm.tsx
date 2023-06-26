@@ -57,11 +57,13 @@ export const CreditCardForm: React.FC = () => {
         placeholder="Card Number"
         name="cardNumber"
         rules={{ required: true }}
+        keyboardType="numeric"
       />
       <Text preset="formLabel" style={styles.label}>
         Name on Card
       </Text>
       <MaskedTextField
+        keyboardType="default"
         control={control}
         mask={nameMask}
         placeholder="Name on Card"
@@ -72,6 +74,7 @@ export const CreditCardForm: React.FC = () => {
         Expiry Date
       </Text>
       <MaskedTextField
+        keyboardType="numeric"
         control={control}
         mask={expiryDateMask}
         placeholder="Expiry Date (MM/YY)"
@@ -82,6 +85,7 @@ export const CreditCardForm: React.FC = () => {
         CCV
       </Text>
       <MaskedTextField
+        keyboardType="numeric"
         control={control}
         mask={ccvMask}
         placeholder="CCV"
